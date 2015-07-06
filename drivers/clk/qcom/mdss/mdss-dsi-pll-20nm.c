@@ -643,4 +643,3 @@ int dsi_pll_clock_register_20nm(struct platform_device *pdev,
 
 	return rc;
 }
-
