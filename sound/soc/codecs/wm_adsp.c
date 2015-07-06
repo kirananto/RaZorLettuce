@@ -2630,7 +2630,7 @@ int wm_adsp2_init(struct wm_adsp *dsp, struct mutex *fw_lock)
 	return 0;
 }
 EXPORT_SYMBOL_GPL(wm_adsp2_init);
-
+MODULE_LICENSE("GPL v2");
 bool wm_adsp_compress_supported(const struct wm_adsp *dsp,
 				const struct snd_compr_stream *stream)
 {
