@@ -261,6 +261,10 @@ nfqnl_zcopy(struct sk_buff *to, const struct sk_buff *from, int len, int hlen)
 	to->len += len + plen;
 	to->data_len += len + plen;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a8e0d3bc8693ebd210ea907b8a363ca93daa077e
 	for (i = 0; i < skb_shinfo(from)->nr_frags; i++) {
 		if (!len)
 			break;

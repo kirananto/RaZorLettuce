@@ -208,12 +208,30 @@ unsigned int get_rq_info(void)
         rq = rq_info.rq_avg;
         rq_info.rq_avg = 0;
 
+<<<<<<< HEAD
+=======
+#ifdef CONFIG_BRICKED_HOTPLUG
+unsigned int get_rq_info(void)
+{
+	unsigned long flags = 0;
+        unsigned int rq = 0;
+
+        spin_lock_irqsave(&rq_lock, flags);
+
+        rq = rq_info.rq_avg;
+        rq_info.rq_avg = 0;
+
+>>>>>>> a8e0d3bc8693ebd210ea907b8a363ca93daa077e
         spin_unlock_irqrestore(&rq_lock, flags);
 
         return rq;
 }
 EXPORT_SYMBOL(get_rq_info);
 #endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> a8e0d3bc8693ebd210ea907b8a363ca93daa077e
 static void def_work_fn(struct work_struct *work)
 {
 	int64_t diff;
