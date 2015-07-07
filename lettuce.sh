@@ -58,8 +58,7 @@ rm -rf $KERNEL_DIR/arch/arm/boot/dt.img
 compile_kernel
 ;;
 esac
-cp $KERNEL_DIR/arch/arm64/boot/Image  $MODULES_DIR/../RaZorLEttuce/
-mv $MODULES_DIR/../RaZorLEttuce/Image $MODULES_DIR/../RaZorLEttuce/zImage
+cp $KERNEL_DIR/arch/arm64/boot/Image  $MODULES_DIR/../LettuceOutput/tools
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nocol"
