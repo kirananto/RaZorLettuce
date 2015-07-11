@@ -48,21 +48,7 @@ then
 echo -e "$red Kernel Compilation failed! Fix the errors! $nocol"
 exit 1
 fi
-strip_modules
 }
-
-strip_modules ()
-{
-echo "Copying modules"
-rm $MODULES_DIR/*
-find . -name '*.ko' -exec cp {} $MODULES_DIR/ \;
-cd $MODULES_DIR
-echo "Stripping modules for size"
-$STRIP --strip-unneeded *.ko
-zip -9 modules *
-cd $KERNEL_DIR
-}
-
 case $1 in
 clean)
 make ARCH=arm64 -j8 clean mrproper
@@ -73,7 +59,6 @@ compile_kernel
 ;;
 esac
 cp $KERNEL_DIR/arch/arm64/boot/Image  $MODULES_DIR/../LettuceOutput/tools
-cp $MODULES_DIR/wlan.ko $MODULES_DIR/../LettuceOutput/system/lib/modules/
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nocol"
